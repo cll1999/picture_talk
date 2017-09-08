@@ -1,0 +1,63 @@
+#program 1
+#import statements
+import pandas as pd
+from sklearn import tree
+import tkinter as tk
+
+from PIL import ImageTk, Image
+#download data
+data = pd.read_csv('./Picture_Dataset.csv')
+def display_pic(pic1):
+    #This creates the main window of an application
+        window = tk.Tk()
+        window.title("Picture")
+        window.geometry("300x300")
+        window.configure(background='grey')
+
+        path = pic1
+
+        #Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
+        img = ImageTk.PhotoImage(Image.open(path))
+
+        #The Label widget is a standard Tkinter widget used to display a text or image on the screen.
+        panel = tk.Label(window, image = img)
+
+        #The Pack geometry manager packs widgets in rows or columns.
+        panel.pack(side = "bottom", fill = "both", expand = "yes")
+
+        #Start the GUI
+        window.mainloop()
+        
+def on_open():
+    display_pic("happy.jpg")
+    display_pic("sad.jpg")
+    display_pic("angry.jpg")
+    display_pic("nervous.jpg")
+ on_open()   
+class Picture():
+    
+    #open a picture
+    def pic_open(self, pic):
+        #This creates the main window of an application
+        window = tk.Tk()
+        window.title("Picture")
+        window.geometry("300x300")
+        window.configure(background='grey')
+
+        path = pic
+
+        #Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
+        img = ImageTk.PhotoImage(Image.open(path))
+
+        #The Label widget is a standard Tkinter widget used to display a text or image on the screen.
+        panel = tk.Label(window, image = img)
+
+        #The Pack geometry manager packs widgets in rows or columns.
+        panel.pack(side = "bottom", fill = "both", expand = "yes")
+
+        #Start the GUI
+        window.mainloop()
+
+p = Picture()
+p.pic_open("happy.jpg")
+    
